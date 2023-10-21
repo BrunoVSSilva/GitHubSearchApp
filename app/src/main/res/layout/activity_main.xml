@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.brunovssilva.githubsearch.ui.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        style="@style/TextAppearance.MaterialComponents.Headline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_nome_usuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:maxLines="1"
+        android:hint="@string/nome_do_usuario"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_titulo" />
+
+    <Button
+        android:id="@+id/btn_confirmar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/confirmar"
+        app:layout_constraintEnd_toEndOf="@id/et_nome_usuario"
+        app:layout_constraintStart_toStartOf="@id/et_nome_usuario"
+        app:layout_constraintTop_toBottomOf="@id/et_nome_usuario" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_lista_repositories"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_confirmar"
+        tools:listitem="@layout/repository_item" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/pb_carregamento"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_lista_repositories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/iv_wifi_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_wifi_off"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_lista_repositories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/descricao_ic_wifi_off" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_wifi_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:text="@string/text_wifi_off"
+        app:layout_constraintStart_toStartOf="@id/btn_confirmar"
+        app:layout_constraintEnd_toEndOf="@id/btn_confirmar"
+        app:layout_constraintTop_toBottomOf="@id/iv_wifi_off"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
